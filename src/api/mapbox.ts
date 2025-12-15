@@ -3,40 +3,10 @@ import axios from "axios";
 
 //FOR MORE DATA TO FETCH ON THE API (LIKE DISTANCE, DURATION, ETC...)
 // CHECK WITHIN "RESPONSE"
-/*export const destinationLatLng = async ({query, publicToken}: any) => {
-    try {
-        const response = await axios.get(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json`,
-            {
-                params: {
-                access_token: publicToken,
-                limit: 1,
-                },
-            }
-        );
-        if (response.data.features.length === 0) {
-            console.warn("No results found for query:", query);
-            return null;
-        }
-
-        const feature = response.data.features[0];
-        const {coordinates}  = feature.geometry;
-        const placeName = feature.place_name; 
-        const shortName = feature.text; // Short name
-
-        return { coordinates, placeName, shortName };
-
-    } catch (error) {
-        console.error("Error fetching destination coordinates:", error);
-        return null;
-  } 
-};
-*/
-
 export const destinationDirection = async ({currentLocation, destLng, destLat, publicToken}: any) => {
     try {
         const response = await axios.get(
-            `https://api.mapbox.com/directions/v5/mapbox/driving-traffic/${currentLocation.longitude},${currentLocation.latitude};${destLng},${destLat}`,
+            `https://api.mapbox.com/directions/v5/mapbox/walking/${currentLocation.longitude},${currentLocation.latitude};${destLng},${destLat}`,
             {
                 params: {
                     geometries: "geojson",
