@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Modal, Pressable, StyleSheet, Text, View } from "react-native";
-import POIPager from './PoiPager';
+import PoiPager from './PoiPager';
 
 
 
@@ -33,7 +33,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                         {poiFeatures?.properties?.short}
                     </Text>
                     <View style={{ height: "70%", width: "100%" }}>
-                        <POIPager pages={poiFeatures} />
+                        <PoiPager pages={poiFeatures} />
                     </View>
                     <Pressable
                         style={{ marginTop: 20 }}
