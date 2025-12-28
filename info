@@ -25,19 +25,27 @@ Don't change what's within the content array!
 -> Second prompt for pages:
 
 FIRST PROMPT!!
-Now let's make the actual content for each chapter. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. Within the chapter you can write subtopics - for exemple:
+Now let's make the actual content for each chapter. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
+Carefull not to write just about architecture. I also need a lot of actualy story
+that happened on the given place.
+Within the chapter you can write subtopics - for exemple:
 Chapter 1: Building the Cathedral.
 Subtopic 1: The first man to build the cathedral
 Subtopic 2: The logistical difficulties to build the cathedral
 etc...
 The chapter you will write is { Name of the chapter }.
 Don't use bulletpoints. Please, put the number of the subchapter when 
-you write the name of the subchapter.
+you write the name of the subchapter. Please, also create an intro for the chapter.
+
 
 REPETETIVE PROMPT!!!
-Now let's make the actual content for the {number_of_the_chapter}, which we previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
+Now let's make the actual content for the chapter {number_of_the_chapter}, which we previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
+Carefull not to write just about architecture. I also need a lot of actualy story
+that happened on the given place.
+Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
 Don't use bulletpoints. Please, put the number of the subchapter when 
-you write the name of the subchapter.
+you write the name of the subchapter. Please, also create an intro for the chapter.
+
 
 -------------------------------------------
 
@@ -49,7 +57,22 @@ Push	git push    origin dev	     Uploads your code to the server so it can be me
 Pull	git pull    origin main	     Syncs your local main with the new production code.
 Sync	git merge   main (on dev)	 Keeps dev perfectly in line with main for the next feature.
 
+-> UPDATE MAIN: 
 
+* Switch to the main branch:
+git checkout main
+
+* Pull the latest main from GitHub: (Just in case there are changes there you don't have)
+git pull origin main
+
+* Merge dev into main:
+git merge dev
+
+* Push the updated main back to GitHub:
+git push origin main
+
+* Switch back to dev to keep working:
+git checkout dev
 
 --------------------------------
 

@@ -60,7 +60,9 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow $(gps-project-ui) to use your location."
         }
-      ]
+      ],
+      "expo-web-browser",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,

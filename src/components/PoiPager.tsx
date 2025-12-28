@@ -1,23 +1,17 @@
-import { ScreenWidth } from '@rneui/base';
-import { center } from '@turf/turf';
-import React, { useRef, useState } from 'react'
-import { Button, Dimensions, FlatList, ScrollView, Text, View } from 'react-native'
-
+import React, { useCallback, useRef, useState } from 'react'
+import { Alert, Button, Dimensions, FlatList, Image, Linking, ScrollView, Text, View } from 'react-native'
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const PoiPager = ({chapters, setVisiblePages}: any) => {
-    //console.log("PoiPager: ", chapters)
     const listRef = useRef<FlatList>(null);
     const [page, setPage] = useState(0);
     const PARENT_PADDING = 25;
     const { width: SCREEN_WIDTH } = Dimensions.get("window");
-    
     const ITEM_WIDTH = SCREEN_WIDTH; // //ITEM_WIDTH is the width of each content
-    //const { width: SCREEN_WIDTH } = Dimensions.get("window");
-    
     
     return (
         <View>
-            <View style={{backgroundColor: "blue", height: 700}}>
+            <View style={{height: 700}}>
                 {chapters?.map((item: any) => {
                     const goToPage = (index: number) => {
                         if(index < 0 || index >= item.contents.length) return;
@@ -28,47 +22,89 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                     };
 
                     return (
-                        <View style={{justifyContent: "space-between", flex: 1, backgroundColor: "blue"}}>
+                        <View style={{justifyContent: "space-between", flex: 1}}>
+
+                            <Text 
+                                style={{ 
+                                    fontSize: 20, 
+                                    color: "white", 
+                                    textAlign: "center",
+                                    margin: 5,
+                                    fontFamily: "CormorantUnicase",
+                                }}
+                            >
+                                {item.title}
+                            </Text>
                             
                             <FlatList
                                 ref={listRef}
                                 data={item.contents}
                                 scrollEnabled
                                 persistentScrollbar
-                                style={{backgroundColor: "green", overflowY: "scroll"}}
+                                style={{backgroundColor: "black", overflowY: "scroll"}}
                                 horizontal
                                 pagingEnabled
                                 showsHorizontalScrollIndicator={false}
                                 keyExtractor={(item) => item.id}
                                 getItemLayout={(data, index) => (
-                                    { length: ITEM_WIDTH, offset: ITEM_WIDTH * index, index }
+                                    { length: SCREEN_WIDTH, offset: SCREEN_WIDTH * index, index }
                                 )}
                                 onMomentumScrollEnd={(e) => {
                                     const index = Math.round(
                                         e.nativeEvent.contentOffset.x /
-                                        ITEM_WIDTH
+                                        SCREEN_WIDTH
                                     );
                                     setPage(index);
                                 }}
                                 renderItem={( content : any) => {
                                     return (
-                                        <View 
-                                            style={{ 
-                                                width: ITEM_WIDTH, 
-                                                gap: 16, 
-                                                alignItems: "center",
-                                                padding: PARENT_PADDING
-                                            }}>
-                                            <Text 
-                                                style={{ 
-                                                    fontSize: 26, 
-                                                    color: "white", 
-                                                    textAlign: "center",
+                                        <View style={{ width: ITEM_WIDTH }}>
+                                            <ScrollView 
+                                                // This allows the vertical content to scroll within the page
+                                                showsVerticalScrollIndicator={true}
+                                                contentContainerStyle={{ 
+                                                    padding: PARENT_PADDING, 
+                                                    gap: 16, 
+                                                    alignItems: "center" 
                                                 }}
                                             >
-                                                {content.item.name}
-                                            </Text>
-                                            <Text style={{ fontSize: 19, color: "white", textAlign: "justify"/*, width: "100%"*/ /*backgroundColor: "yellow"*/ }}>{content.item.description}</Text>
+                                                {(content.item.name !== "") && content.item.name !== undefined &&
+                                                    <Text 
+                                                        style={{ 
+                                                            fontSize: 23, 
+                                                            color: "white", 
+                                                            textAlign: "center",
+                                                        }}
+                                                    >
+                                                        {content.item.name}
+                                                    </Text>
+                                                }
+                                                <Text style={{ fontSize: 19, color: "white", textAlign: "justify"/*, width: "100%"*/ /*backgroundColor: "yellow"*/ }}>{content.item.description}</Text>
+                                                <View style={{position:"relative",alignItems:"center", backgroundColor: "red", margin: 0}}>
+                                                    {content.item.image &&
+                                                    <Image
+                                                        style={{ 
+                                                            width: 300, 
+                                                            height: 300,
+                                                        }}
+                                                        resizeMode="contain"
+                                                        source={content.item.image}    
+                                                    />
+                                                    }
+                                                </View>
+                                                {(content.item.videoId !== "") && content.item.videoId !== undefined && 
+                                                    <View style={{ flex: 1, backgroundColor: "black" }}>
+                                                        <YoutubePlayer
+                                                            width={SCREEN_WIDTH - PARENT_PADDING}
+                                                            height={350}
+                                                            //play={playing}
+                                                            videoId={content.item.videoId}
+                                                            //onChangeState={onStateChange}
+                                                        />
+                                                        {/*<Button title={playing ? "pause" : "play"} onPress={togglePlaying} />*/}
+                                                    </View>
+                                                }
+                                            </ScrollView>
                                         </View>
                                     )
                                 }}

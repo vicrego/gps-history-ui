@@ -4,17 +4,14 @@ import PoiPager from './PoiPager';
 import { Card, Image } from '@rneui/base';
 import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
 import { chapterImages } from '../api/poiContent';
-
+import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
     const [filteredChapters, setFilteredChapters] = useState();
     const [visiblePages, setVisiblePages] = useState(false);
-  
-    console.log("poiFeatures: ", poiFeatures?.properties.chapters)
-    console.log("poi tile: ", poiFeatures?.properties?.title)
+    console.log("poiFeatures POI Modal: ", poiFeatures)
     const handleClick = (chapter: any) => {
-        console.log("chapter: ", chapter);
-        console.log("chapters: ", poiFeatures?.properties.chapters[0].title);
         let filteredChapters = poiFeatures?.properties.chapters.filter((data: any) => data.title === chapter);
         setFilteredChapters(filteredChapters);
         setVisiblePages(true);
@@ -32,7 +29,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                 backgroundColor: "rgba(0,0,0,0.4)"
             }}>
                 <View style={{
-                    backgroundColor: "purple",
+                    backgroundColor: "rgba(9, 0, 79, 1)",
                     zIndex: 2, 
                     height: "100%",
                     paddingTop: 30,
@@ -40,60 +37,89 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                     borderTopRightRadius: 20,
                 }}>
                     <View style={styles.header}>
-                        <View style={{ width: 100, // reserve space
-                            alignItems: "flex-start"}}>
+                        <View style={{ width: 100, alignItems: "flex-start"}}>
                             {visiblePages && (
-                                <Button
-                                    title="CLOSE!"
-                                    onPress={() => setVisiblePages(false)}
-                                />
+                                <FontAwesome5 onPress={() => setVisiblePages(false)} name="arrow-circle-left" size={38} color="green" />
                             )}
                         </View>
-
+                        <Text style={{color: "white", fontSize: 20, fontFamily: "CormorantUnicase",}}>{poiFeatures?.properties.title}</Text>
                         <View style={{ width: 100, alignItems: "flex-end"}}>
-                            <Pressable onPress={() => setModalVisible(false)}>
-                            <Text style={{ color: "blue" }}>Close</Text>
-                            </Pressable>
+                            <AntDesign onPress={() => setModalVisible(false)} name="close-circle" size={38} color="green" />
                         </View>
                     </View>
                     {!visiblePages ? (
                         <ScrollView 
                             contentContainerStyle={{
-                                paddingBottom: 20, 
-                                gap: 22, 
+                                paddingBottom: 70, 
+                                gap: 30, 
+                                backgroundColor: "rgba(0,0,0,0.4)"
                             }}
                         >
                             {poiFeatures?.properties.chapters.map((chapter: any) => {
                                 return (
                                     <View 
                                         key={chapter.id} 
-                                        style={{ top: 20, width: 300, alignSelf: "center"}}
+                                        style={{ top: 20, width: 350, alignSelf: "center", backgroundColor: "rgba(10, 0, 88, 1)"}}
                                     >
                                         <Pressable 
-                                            onPress={()=> handleClick(chapter.title)} style={{ backgroundColor: "blue" }} 
+                                            onPress={()=> handleClick(chapter.title)}  
                                         >
-                                            <Card.Title 
+
+                                            <View 
                                                 style={{
-                                                    color: "white", 
-                                                    textAlignVertical: "center", 
-                                                    marginBottom: 0,
-                                                    paddingVertical: 5,
-                                                    //margin: 0,
-                                                    backgroundColor: "blue",
+                                                    position:"relative",
+                                                    alignItems:"center", 
+                                                    flexDirection: "row",
+                                                    width: 200
                                                 }}
                                             >
-                                                {chapter.title}
-                                            </Card.Title>
-                                            
-                                            <View style={{position:"relative",alignItems:"center"}}>
+                                                {/*
+                                                <Text 
+                                                    style={{
+                                                        position: 'absolute',
+                                                        color: "black", 
+                                                        top: "30%",
+                                                        //left: "50%",
+                                                        textAlignVertical: "center", 
+                                                        textAlign: "center",
+                                                        fontFamily: "OldEnglish-Bold",
+                                                        fontSize: 20,
+                                                        zIndex: 2
+                                                    }}
+                                                >
+                                                    {chapter.title}
+                                                </Text>
+                                                */}
                                                 <Image
                                                     style={{ 
-                                                        width:300, 
-                                                        height:300,
+                                                        width:150, 
+                                                        height:150,
                                                     }}
                                                     resizeMode="contain"
                                                     source={chapter.image}    
                                                 />
+                                                <View 
+                                                    style={{
+                                                        marginBottom: 0,
+                                                        paddingVertical: 5,
+                                                        marginRight: 2,
+                                                        marginLeft: 2,
+                                                    }}
+                                                >
+                                                    <Text 
+                                                        style={{
+                                                            color: "white", 
+                                                            textAlignVertical: "center", 
+                                                            textAlign: "center",
+                                                            fontFamily: "CormorantUnicase",
+                                                            fontSize: 20
+                                                        }}
+                                                    >
+                                                        {chapter.title}
+                                                    </Text>
+
+                                                    
+                                                </View>
                                             </View>
                                         </Pressable>  
                                     </View>
@@ -104,13 +130,18 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                         <View style={{
                             justifyContent: "center", 
                         }}>
-                            <Text style={{ fontSize: 20, fontWeight: "bold", alignSelf: "center", color: "white"}}>
+                            {/*
+                            <Text 
+                                style={{ 
+                                    fontSize: 20, 
+                                    fontWeight: "bold", 
+                                    alignSelf: "center", 
+                                    color: "white",
+                                    fontFamily: "serif"
+                                }}>
                                 {poiFeatures?.properties?.title}
                             </Text>
-                            <Text style={{alignSelf: "center", fontSize: 18, color: "white"}}>
-                                {poiFeatures?.properties?.short}
-                            </Text>
-
+                            */}
                             <View >
                                 <PoiPager chapters={filteredChapters} setVisiblePages={setVisiblePages} />
                             </View>
@@ -125,18 +156,22 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    height: "100%"
-  },
+    container: {
+        width: "100%",
+        height: "100%"
+    },
     header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  page: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+        flexDirection: "row",
+        justifyContent: "space-between",
+        height: 60,
+        alignItems: "center",
+        marginLeft: 10,
+        marginRight: 10
+    },
+    page: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
 
 export default PoiModal
