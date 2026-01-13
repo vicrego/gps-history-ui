@@ -10,9 +10,10 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
     const [filteredChapters, setFilteredChapters] = useState();
     const [visiblePages, setVisiblePages] = useState(false);
+    const chapters = poiFeatures?.properties.chapters;
     console.log("poiFeatures POI Modal: ", poiFeatures)
     const handleClick = (chapter: any) => {
-        let filteredChapters = poiFeatures?.properties.chapters.filter((data: any) => data.title === chapter);
+        let filteredChapters = chapters.filter((data: any) => data.title === chapter);
         setFilteredChapters(filteredChapters);
         setVisiblePages(true);
     }
@@ -37,13 +38,13 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                     borderTopRightRadius: 20,
                 }}>
                     <View style={styles.header}>
-                        <View style={{ width: 100, alignItems: "flex-start"}}>
+                        <View style={{ width: 50, alignItems: "flex-start"}}>
                             {visiblePages && (
                                 <FontAwesome5 onPress={() => setVisiblePages(false)} name="arrow-circle-left" size={38} color="green" />
                             )}
                         </View>
-                        <Text style={{color: "white", fontSize: 20, fontFamily: "CormorantUnicase",}}>{poiFeatures?.properties.title}</Text>
-                        <View style={{ width: 100, alignItems: "flex-end"}}>
+                        <Text style={{color: "white", fontSize: 28, fontFamily: "CormorantUnicase"}}>{poiFeatures?.properties.title}</Text>
+                        <View style={{ width: 50, alignItems: "flex-end"}}>
                             <AntDesign onPress={() => setModalVisible(false)} name="close-circle" size={38} color="green" />
                         </View>
                     </View>
@@ -143,10 +144,8 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                             </Text>
                             */}
                             <View >
-                                <PoiPager chapters={filteredChapters} setVisiblePages={setVisiblePages} />
+                                <PoiPager chapter={filteredChapters} setVisiblePages={setVisiblePages} />
                             </View>
-
-                            
                         </View>
                     )}
                 </View>

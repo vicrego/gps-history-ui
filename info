@@ -13,39 +13,26 @@ Background are being removed by:
 https://www.remove.bg/
 
 For content generation, 
--> Use first this prompt for Chapter delineation:
+-> First prompt for Chapter delineation:
 Let's try to create some content. First, let's create a chapter list
-delineation for {Name of the Building}. You'll research for the most accurate historical sources, but first let's organize the chapters the content will have. These chapters will be organized in a chronological way, from the beggning until the contemporaneous times, going through every major period of the building - it will have informative descriptions and various curiosities as you would see in a guided tour. But for now we only need to deliniate the chapters for that. Please, don't forget to name the chapter.
+delineation for {Name of the Building}. You'll research for the most accurate historical sources, but first let's organize the chapters the content will have. These chapters will be organized in a chronological way, from the beggning until the contemporaneous times, going through every major period of the building - it will have informative descriptions and various curiosities as you would see in a guided tour. 
+Careful not to write just about architecture! I also need a lot of actually story
+that happened on the given place.
+But for now we only need to delineate the chapters for that. Please, don't forget to name the chapter.
 Make sure to also list just the names of the chapter separately, so I can copy them easily.
 Also, give me the chapters, but with this format:  { id: "12", title: "What It Means Today", content: [ { id: "", description: "" }, { id: "", description: "" }, ], }
 Don't change what's within the content array!
 
+-> Second prompt for Content:
 
-
--> Second prompt for pages:
-
-FIRST PROMPT!!
-Now let's make the actual content for each chapter. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
-Carefull not to write just about architecture. I also need a lot of actualy story
-that happened on the given place.
-Within the chapter you can write subtopics - for exemple:
-Chapter 1: Building the Cathedral.
-Subtopic 1: The first man to build the cathedral
-Subtopic 2: The logistical difficulties to build the cathedral
-etc...
-The chapter you will write is { Name of the chapter }.
-Don't use bulletpoints. Please, put the number of the subchapter when 
-you write the name of the subchapter. Please, also create an intro for the chapter.
-
-
-REPETETIVE PROMPT!!!
-Now let's make the actual content for the chapter {number_of_the_chapter}, which we previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
-Carefull not to write just about architecture. I also need a lot of actualy story
-that happened on the given place.
+Now let's make the actual content for the chapter which we've previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
+Careful not to write just about architecture. I also need a lot of actually story that happened on the given place.
 Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
-Don't use bulletpoints. Please, put the number of the subchapter when 
+Don't use bullet points. Please, put the number of the subchapter when 
 you write the name of the subchapter. Please, also create an intro for the chapter.
-
+Everytime you jump a line
+use the symbol \n since this text will be used within a coding structure. 
+I don't mean to use \n in between subchapter or at the end of the subchapter's text - avoid them -, I mean within the sub-chapters if needed.
 
 -------------------------------------------
 

@@ -1,18 +1,37 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Alert, Button, Dimensions, FlatList, Image, Linking, ScrollView, Text, View } from 'react-native'
 import YoutubePlayer from "react-native-youtube-iframe";
+import * as WebBrowser from 'expo-web-browser';
 
-const PoiPager = ({chapters, setVisiblePages}: any) => {
+const PoiPager = ({chapter, setVisiblePages}: any) => {
     const listRef = useRef<FlatList>(null);
     const [page, setPage] = useState(0);
     const PARENT_PADDING = 25;
     const { width: SCREEN_WIDTH } = Dimensions.get("window");
     const ITEM_WIDTH = SCREEN_WIDTH; // //ITEM_WIDTH is the width of each content
+    const [isDisabledBack, setIsDisabledBack] = useState(false);
+    const [isDisabledNext, setIsDisabledNext] = useState(false);
+    const handleOpenBrowser = async () => {
+        await WebBrowser.openBrowserAsync('https://www.virtualststephens.org.uk/sites/virtualststephens.org.uk/files/panoramas/1360s/tour.html');
+    };
     
+    useEffect(() => {
+        if(page <= 0){
+            setIsDisabledBack(true);
+        } else {
+            setIsDisabledBack(false);
+        }
+        if(page >= chapter[0].contents.length - 1 ){
+            setIsDisabledNext(true);
+        } else {
+            setIsDisabledNext(false);
+        }
+    }, [page])
+
     return (
         <View>
             <View style={{height: 700}}>
-                {chapters?.map((item: any) => {
+                {chapter?.map((item: any) => {
                     const goToPage = (index: number) => {
                         if(index < 0 || index >= item.contents.length) return;
                         listRef.current?.scrollToIndex({
@@ -20,10 +39,9 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                             animated: true,
                         });
                     };
-
+                    console.log("item.id: ", item.id)
                     return (
-                        <View style={{justifyContent: "space-between", flex: 1}}>
-
+                        <View key={item.id} style={{justifyContent: "space-between", flex: 1}}>
                             <Text 
                                 style={{ 
                                     fontSize: 20, 
@@ -35,7 +53,6 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                             >
                                 {item.title}
                             </Text>
-                            
                             <FlatList
                                 ref={listRef}
                                 data={item.contents}
@@ -74,12 +91,17 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                                                             fontSize: 23, 
                                                             color: "white", 
                                                             textAlign: "center",
+                                                            
                                                         }}
                                                     >
                                                         {content.item.name}
                                                     </Text>
                                                 }
-                                                <Text style={{ fontSize: 19, color: "white", textAlign: "justify"/*, width: "100%"*/ /*backgroundColor: "yellow"*/ }}>{content.item.description}</Text>
+                                                {content.item.description.split('\n').map((line: any, index: any) => (
+                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
+                                                        {line}
+                                                    </Text>
+                                                ))}
                                                 <View style={{position:"relative",alignItems:"center", backgroundColor: "red", margin: 0}}>
                                                     {content.item.image &&
                                                     <Image
@@ -93,7 +115,7 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                                                     }
                                                 </View>
                                                 {(content.item.videoId !== "") && content.item.videoId !== undefined && 
-                                                    <View style={{ flex: 1, backgroundColor: "black" }}>
+                                                    <View key={`video-${content.item.id}`} style={{ flex: 1, backgroundColor: "black" }}>
                                                         <YoutubePlayer
                                                             width={SCREEN_WIDTH - PARENT_PADDING}
                                                             height={350}
@@ -102,6 +124,25 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                                                             //onChangeState={onStateChange}
                                                         />
                                                         {/*<Button title={playing ? "pause" : "play"} onPress={togglePlaying} />*/}
+                                                    </View>
+                                                }
+                                                {(content.item.externalLink !== "") && content.item.externalLink !== undefined && 
+                                                    <View key={`video-${content.item.id}`}>
+                                                        <Button 
+                                                            title={content.item.externalLink.title}
+                                                            onPress={
+                                                                async () => await WebBrowser.openBrowserAsync(content.item.externalLink.link)
+                                                            } 
+                                                        />
+                                                        <Image
+                                                            style={{ 
+                                                                width: 300, 
+                                                                height: 300,
+                                                                margin: 0,
+                                                            }}
+                                                            resizeMode="contain"
+                                                            source={content.item.externalLink.image}    
+                                                        />
                                                     </View>
                                                 }
                                             </ScrollView>
@@ -148,13 +189,14 @@ const PoiPager = ({chapters, setVisiblePages}: any) => {
                                         }}>
                                         <Button
                                             title="Back"
+                                            disabled={isDisabledBack}
                                             onPress={() => goToPage(page - 1)}
                                         />
                                         <Button
                                             title="Next"
+                                            disabled={isDisabledNext}
                                             onPress={() => goToPage(page + 1)}
                                         />
-                                        
                                     </View>
                                 </View>
                             </View>

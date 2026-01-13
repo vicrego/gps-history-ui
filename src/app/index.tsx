@@ -44,7 +44,7 @@ const Index = () => {
           >
           {cities.map((city) => {
             return (
-              <Card>
+              <Card key={city.name}>
                 <Card.Title><Text>{city.name}</Text></Card.Title>
                 <Card.Divider/>
                 <Image
