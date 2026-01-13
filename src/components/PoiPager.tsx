@@ -100,7 +100,11 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                                                 }
                                                 {content.item.description.split('\n').map((line: any, index: any) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <Text style={{ fontSize: 19, color: "white", textAlign: "justify"/*, width: "100%"*/ }}>
+=======
+                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
+>>>>>>> fd4af2b (Content For Westminster and Houses Of Parliament)
 =======
                                                     <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
 >>>>>>> fd4af2b (Content For Westminster and Houses Of Parliament)
