@@ -31,6 +31,14 @@ export const chapterImages = {
         chapter11: require("../../assets/images/poi/london/houses-of-parliament/chapter11/chapter11.jpg"),
         chapter12: require("../../assets/images/poi/london/houses-of-parliament/chapter12/chapter12.jpg"),
         chapter13: require("../../assets/images/poi/london/houses-of-parliament/chapter13/chapter13.jpg"),
+    },
+    buckingham_palace: {
+        chapter1: require("../../assets/images/poi/london/buckingham-palace/chapter1/chapter1.png"),
+        chapter2: require("../../assets/images/poi/london/buckingham-palace/chapter2/chapter2.jpeg"),
+        chapter3: require("../../assets/images/poi/london/buckingham-palace/chapter3/chapter3.jpg"),
+        chapter4: require("../../assets/images/poi/london/buckingham-palace/chapter4/chapter4.jpg"),
+        chapter5: require("../../assets/images/poi/london/buckingham-palace/chapter5/chapter5.jpg"),
+        chapter6: require("../../assets/images/poi/london/buckingham-palace/chapter6/chapter6.jpg"),
     }
 };
 
@@ -43,6 +51,12 @@ export const contentImages = {
         stephen_chapel: require("../../assets/images/poi/london/houses-of-parliament/chapter4/stephen_chapel.png"),
         big_ben_1858: require("../../assets/images/poi/london/houses-of-parliament/chapter7/big-ben-1858.jpg"),
         guy_fawkes: require("../../assets/images/poi/london/houses-of-parliament/chapter12/guyfawkes-1.jpg"),
+    },
+    buckingham_palace: {
+        james_I: require("../../assets/images/poi/london/buckingham-palace/chapter1/james_I.jpg"), 
+        james_sheffield: require("../../assets/images/poi/london/buckingham-palace/chapter2/john_sheffield.jpg"), 
+        buckingham_george_IV: require("../../assets/images/poi/london/buckingham-palace/chapter4/buckingham_george_IV.jpg"), 
+        george_IV: require("../../assets/images/poi/london/buckingham-palace/chapter4/george_IV.jpg"), 
     }
 }
 
@@ -94,11 +108,12 @@ export const mapFeatures: FeatureCollection<Point> =
                     { 
                         id: "1", 
                         title: "Before the Palace: Marshland, Mulberry Gardens, and Early London", 
+                        image: chapterImages.buckingham_palace.chapter1,
                         contents: [ 
                             { id: "1", description: "Before Buckingham Palace became a symbol of monarchy and ceremony, this area lay on the edge of London, shaped by water, mud, and royal experiments that never quite succeeded. Understanding what existed here before the palace reveals how accidental and improvised the site’s royal destiny truly was." }, 
                             { id: "2", name: "A Landscape of Rivers, Reeds, and Isolation", description: "In medieval times, the land where Buckingham Palace now stands was low-lying marshland fed by the River Tyburn, a tributary of the Thames that flowed openly through what is now Green Park and St James’s Park.\nThis area was considered unhealthy and undesirable, prone to flooding and thick with reeds. It lay well outside the medieval city walls, closer to countryside than to London, which made it attractive not for settlement but for hunting and royal leisure." }, 
                             { id: "3", name: "Royal Hunting Grounds and Early Privilege", description: "Despite its marshy nature, the land held value because of its proximity to Westminster and the Thames. English monarchs used nearby fields and woods as private hunting grounds, reserved exclusively for royal use.\nAccess to this land was tightly controlled, reinforcing the idea that even undeveloped spaces around London could express royal power simply through exclusion." }, 
-                            { id: "4", name: "The Mulberry Garden Experiment", description: "In the early 17th century, King James I attempted to transform the area into a center of silk production. Mulberry trees were planted extensively with the hope of breeding silkworms and reducing England’s dependence on imported silk.\nThe project failed largely because the wrong species of mulberry was chosen, a small botanical error with large economic consequences. The abandoned gardens, however, left behind improved drainage and cleared land, quietly preparing the site for future development." }, 
+                            { id: "4", name: "The Mulberry Garden Experiment", image: contentImages.buckingham_palace.james_I, description: "In the early 17th century, King James I attempted to transform the area into a center of silk production. Mulberry trees were planted extensively with the hope of breeding silkworms and reducing England’s dependence on imported silk.\nThe project failed largely because the wrong species of mulberry was chosen, a small botanical error with large economic consequences. The abandoned gardens, however, left behind improved drainage and cleared land, quietly preparing the site for future development." }, 
                             { id: "5", name: "From Experiment to Opportunity", description: "After the failure of the mulberry gardens, the land gradually shifted from agricultural curiosity to valuable real estate. Drainage efforts made the area more stable, while London expanded westward, closing the distance between city and marsh.\nWhat had once been marginal ground now stood at the edge of elite neighborhoods, poised to attract ambitious nobles seeking proximity to royal power without the congestion of the city center." }, 
                             { id: "6", name: "A Place Defined by Change Before Permanence", description: "By the late 17th century, the future palace site had no grand buildings, no courtly life, and no fixed identity. Instead, it was a place defined by experimentation, abandonment, and transformation.\nThis pattern would continue throughout its history, making Buckingham Palace less the result of a single vision and more the product of centuries of adaptation, failure, and reinvention." }, 
                         ], 
@@ -106,17 +121,20 @@ export const mapFeatures: FeatureCollection<Point> =
                     { 
                         id: "2", 
                         title: "Buckingham House: A Nobleman’s Townhouse", 
+                        image: chapterImages.buckingham_palace.chapter2,
                         contents: [ 
                             { id: "1", description: "Before it became the heart of the British monarchy, Buckingham Palace began its life as a private residence built for ambition rather than royalty. Known originally as Buckingham House, it was conceived as a grand yet comfortable townhouse that reflected the rising power of aristocratic families in early 18th-century London." }, 
-                            { id: "2", name: "The Duke of Buckingham and a Statement of Status", description: "In 1703, John Sheffield, the Duke of Buckingham and Normanby, commissioned a new house on the former mulberry garden site. He was a powerful courtier, poet, and politician, and the house was intended to reflect his closeness to the crown.\nRather than building within the crowded city, he chose this location to assert independence and prestige, creating a residence that stood apart from London’s noise while remaining close to Westminster." }, 
-                            { id: "3", name: "A House Designed for Comfort and Display", description: "Buckingham House was not originally meant to host state ceremonies. Its layout emphasized private apartments, gardens, and elegant reception rooms suitable for entertaining influential guests.\nThe house looked inward toward its gardens, a sign that it was designed as a personal retreat rather than a public stage, a feature that would later clash with its future royal role." }, 
+                            { id: "2", name: "The Duke of Buckingham and a Statement of Status", image: contentImages.buckingham_palace.james_sheffield, description: "In 1703, John Sheffield, the Duke of Buckingham and Normanby, commissioned a new house on the former mulberry garden site. He was a powerful courtier, poet, and politician, and the house was intended to reflect his closeness to the crown.\nRather than building within the crowded city, he chose this location to assert independence and prestige, creating a residence that stood apart from London’s noise while remaining close to Westminster." }, 
+                            { id: "3", name: "A House Designed for Comfort and Display", image: chapterImages.buckingham_palace.chapter2, description: "Buckingham House was not originally meant to host state ceremonies. Its layout emphasized private apartments, gardens, and elegant reception rooms suitable for entertaining influential guests.\nThe house looked inward toward its gardens, a sign that it was designed as a personal retreat rather than a public stage, a feature that would later clash with its future royal role." }, 
                             { id: "4", name: "Life Inside a Nobleman’s Home", description: "The house quickly became a center of social life. Guests included politicians, artists, and members of the royal court, drawn by the Duke’s influence and hospitality.\nServants, cooks, and gardeners maintained a carefully managed household that mirrored the rigid hierarchies of aristocratic life, offering a glimpse into how power was lived day to day rather than simply displayed." }, 
                             { id: "5", name: "Changing Hands and Shifting Fortunes", description: "After the Duke’s death, Buckingham House passed through several owners, reflecting how aristocratic fortunes could rise and fall within a single generation.\nEach owner made modifications, subtly altering the house’s layout and decoration, creating a layered interior that already hinted at future expansion." }, 
                             { id: "6", name: "A House Awaiting a Larger Destiny", description: "By the mid-18th century, Buckingham House stood as a prestigious but conventional aristocratic residence. It was admired, well located, and structurally sound, yet it had no grand historical destiny attached to it.\nIts transformation into a royal residence would come not from its design, but from a monarch seeking privacy, family life, and a space separate from the formal court at St James’s Palace." }, 
                        ], 
                     },
                     { 
-                        id: "3", title: "A Royal Purchase: George III and the Queen’s House", 
+                        id: "3", 
+                        title: "A Royal Purchase: George III and the Queen’s House", 
+                        image: chapterImages.buckingham_palace.chapter3,
                         contents: [ 
                             { id: "1", description: "Buckingham House entered royal history not through grandeur or ceremony, but through a deliberate desire for domestic stability. When King George III acquired the house in the 1760s, he transformed it from a nobleman’s residence into a family home, setting the foundation for its future role at the heart of the monarchy." }, 
                             { id: "2", name: "The King Who Wanted a Home", description: "In 1761, George III purchased Buckingham House as a private residence for his wife, Queen Charlotte. Unlike many of his predecessors, George III favored family life over courtly spectacle.\nThe house offered something rare for a monarch: privacy, space for children, and distance from the rigid formality of St James’s Palace." }, 
@@ -127,18 +145,22 @@ export const mapFeatures: FeatureCollection<Point> =
                         ], 
                     },
                     { 
-                        id: "4", title: "From House to Palace: George IV and the Grand Vision", 
+                        id: "4", 
+                        title: "From House to Palace: George IV and the Grand Vision", 
+                        image: chapterImages.buckingham_palace.chapter4,
                         contents: [ 
-                            { id: "1", description: "The transformation of Buckingham House into Buckingham Palace was driven less by necessity than by personality. King George IV, flamboyant, extravagant, and deeply concerned with image, saw the modest Queen’s House as an opportunity to project royal magnificence on a continental scale. His vision would permanently redefine the building and its role in British public life." }, 
+                            { id: "1", image: contentImages.buckingham_palace.george_IV, description: "The transformation of Buckingham House into Buckingham Palace was driven less by necessity than by personality. King George IV, flamboyant, extravagant, and deeply concerned with image, saw the modest Queen’s House as an opportunity to project royal magnificence on a continental scale. His vision would permanently redefine the building and its role in British public life." }, 
                             { id: "2", name: "A King Obsessed with Splendor", description: "George IV had little interest in the restrained domesticity favored by his father. He admired the grand palaces of Europe and believed the British monarchy required a residence that matched its political stature.\nTo him, Buckingham House was not a home but a foundation upon which to build a symbol of royal authority and cultural refinement." }, 
-                            { id: "3", name: "John Nash and a Costly Dream", description: "To realize his ambitions, George IV commissioned architect John Nash, a close associate and fellow aesthete. Nash expanded the building with new wings, courtyards, and lavish interiors inspired by French and Italian palaces.\nCosts spiraled dramatically, causing public outrage and political tension, especially during a period of economic hardship following the Napoleonic Wars." }, 
+                            { id: "3", name: "John Nash and a Costly Dream", image: contentImages.buckingham_palace.buckingham_george_IV, description: "To realize his ambitions, George IV commissioned architect John Nash, a close associate and fellow aesthete. Nash expanded the building with new wings, courtyards, and lavish interiors inspired by French and Italian palaces.\nCosts spiraled dramatically, causing public outrage and political tension, especially during a period of economic hardship following the Napoleonic Wars." }, 
                             { id: "4", name: "A Palace Built on Excess", description: "The interiors were designed for display rather than comfort. Gilded ceilings, imported marbles, and richly decorated state rooms turned the former house into a palace of spectacle.\nYet the building suffered from structural flaws, poor ventilation, and unfinished elements, revealing the tension between artistic ambition and practical execution." }, 
                             { id: "5", name: "Scandal, Criticism, and an Unfinished Vision", description: "As expenses mounted, Nash fell from favor and was dismissed before completing the project. George IV died in 1830 without ever living comfortably in the palace he envisioned.\nThe building stood partly complete, widely criticized as extravagant and dysfunctional, a monument to royal excess rather than effective leadership." }, 
                             { id: "6", name: "A Palace Without a Purpose, Yet", description: "By the time of George IV’s death, Buckingham Palace existed in name but lacked a clear role. It was too grand to be a private home and too impractical for daily court life.\nIts true significance would only emerge under a new monarch, who would transform George IV’s flawed vision into the working heart of the British monarchy." }, 
                         ], 
                     },
                     { 
-                        id: "5", title: "Victorian Court Life: A Working Palace Emerges", 
+                        id: "5", 
+                        title: "Victorian Court Life: A Working Palace Emerges", 
+                        image: chapterImages.buckingham_palace.chapter5,
                         contents: [ 
                             { id: "1", description: "It was Queen Victoria who finally gave Buckingham Palace a clear purpose. When she ascended the throne in 1837, the palace shifted from an unfinished royal experiment into the functional center of the British monarchy. Under her reign, Buckingham Palace became not just a residence, but a stage where monarchy, empire, and domestic life converged." }, 
                             { id: "2", name: "A Young Queen and a New Beginning", description: "At just eighteen years old, Queen Victoria became the first monarch to take up full-time residence at Buckingham Palace. Unlike her predecessors, she embraced the building, seeing it as a fresh start rather than a flawed legacy.\nHer decision immediately elevated the palace’s status, transforming it into the principal royal residence almost by default." }, 
@@ -150,6 +172,7 @@ export const mapFeatures: FeatureCollection<Point> =
                     },
                     { 
                         id: "6", title: "Ceremony, Power, and Public Spectacle", 
+                        image: chapterImages.buckingham_palace.chapter6,
                         contents: [ 
                             { id: "1", description: "As the British Empire expanded and society became increasingly public, Buckingham Palace evolved into a carefully managed stage where royal authority was performed before the nation and the world. Ceremony became a language of power, and the palace its primary setting, transforming private monarchy into public spectacle." }, 
                             { id: "2", name: "The Palace as a Theatre of Authority", description: "Buckingham Palace was designed to impress, but in the 19th century it learned how to communicate power through ritual. Processions, guard ceremonies, and state receptions turned architecture into choreography.\nEvery entrance, staircase, and reception room played a role in reinforcing hierarchy and continuity." }, 
@@ -162,16 +185,23 @@ export const mapFeatures: FeatureCollection<Point> =
                     { 
                         id: "7", title: "War at the Gates: Buckingham Palace in World War I and II", 
                         contents: [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "The two World Wars transformed Buckingham Palace from a symbol of ceremony into a place of endurance. During these years, the palace stood not above national suffering but within it, absorbing fear, loss, and resilience alongside the people of Britain. War stripped away pageantry and revealed the monarchy at its most human." }, 
+                            { id: "2", name: "Buckingham Palace and the First World War", description: "When World War I began in 1914, Buckingham Palace became both a residence and a center of wartime morale. King George V and Queen Mary chose to remain in London, rejecting suggestions that they relocate to safer countryside estates.\nThe palace hosted military briefings, charity events, and hospital fundraisers, reinforcing the image of a monarchy sharing the burdens of war rather than escaping them." },
+                            { id: "3", name: "A Palace Adjusts to Wartime Reality", description: "Daily life inside the palace changed dramatically. Lights were dimmed or blacked out to avoid airship detection, windows were covered, and gardens were repurposed for practical use.\nFood rationing affected even royal tables, and court life was simplified, signaling solidarity with the population enduring the same restrictions." },
+                            { id: "4", name: "The Blitz and the Palace Under Fire", description: "During World War II, Buckingham Palace became a direct target. Between 1940 and 1941, the palace was bombed multiple times during the Blitz.\nOne bomb destroyed the palace chapel, while others damaged courtyards and nearby rooms. King George VI and Queen Elizabeth were present during several attacks, an experience that deeply shaped their public image." },
+                            { id: "5", name: "“I’m Glad We’ve Been Bombed”", description: "After one bombing raid, Queen Elizabeth famously remarked that she was glad the palace had been hit because it allowed her to look the East End in the face.\nThis statement captured a powerful moment of identification between monarchy and people, transforming the palace from a distant symbol into a shared site of vulnerability." },
+                            { id: "6", name: "A Symbol That Refused to Fall", description: "Despite damage and danger, Buckingham Palace remained operational throughout the war. Repairs were often delayed to maintain morale and avoid diverting resources.\nThe survival of the palace became a symbol of national endurance, proving that even under direct attack, Britain’s institutions and identity would not collapse." }, 
                         ], 
                     },
                     { 
                         id: "8", title: "A Symbol Under Scrutiny: Protest, Change, and the 20th Century Monarchy", 
                         contents: [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "The 20th century challenged the monarchy in ways no previous era had. As society became more democratic, media-driven, and outspoken, Buckingham Palace shifted from unquestioned symbol to contested space. The gates that once framed reverence increasingly became gathering points for debate, dissent, and dialogue." }, 
+                            { id: "2", name: "The Palace and a Changing Public Voice", description: "As universal suffrage expanded and class structures shifted, public attitudes toward monarchy grew more complex. Buckingham Palace became a focal point for both celebration and criticism.\nCrowds still gathered for royal occasions, but they also assembled to question the relevance and cost of the monarchy in a modern state." }, 
+                            { id: "3", name: "Protest at the Gates", description: "From anti-war demonstrations to republican protests, the space outside Buckingham Palace evolved into a platform for political expression.\nThe palace’s visibility made it an ideal backdrop for causes seeking attention, turning the royal residence into an unintended participant in public debate." },
+                            { id: "4", name: "Media, Scandal, and Royal Privacy", description: "The rise of mass media eroded the palace’s traditional privacy. Royal events, crises, and personal struggles were now broadcast and scrutinized worldwide.\nMoments of scandal placed Buckingham Palace at the center of national conversation, forcing the monarchy to respond publicly in ways previously unthinkable." },
+                            { id: "5", name: "Adapting Without Disappearing", description: "Despite criticism, the monarchy adapted rather than retreated. Public engagements became more accessible, charitable work more visible, and communication more transparent.\nBuckingham Palace evolved from a closed fortress into a semi-open institution, balancing tradition with public expectation." },
+                            { id: "6", name: "A Symbol Redefined, Not Rejected", description: "Rather than losing significance, Buckingham Palace acquired new meaning. It became a place where continuity met accountability, and tradition encountered modern values.\nIn this tension, the palace remained central to national identity, not as an untouchable relic, but as a living symbol shaped by public dialogue." },
                         ], 
                     },
                     {
@@ -179,31 +209,48 @@ export const mapFeatures: FeatureCollection<Point> =
                         title: "Inside the Palace: Daily Life Behind the Gates", 
                         contents: 
                         [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "Beyond the ceremonial façade and guarded gates lies a world governed by routine, hierarchy, and quiet precision. Buckingham Palace is not only a symbol of monarchy but also a functioning household and workplace, where hundreds of people live and work to sustain the rhythm of royal life. Exploring daily life inside reveals a palace defined as much by schedules and service as by splendor." }, 
+                            { id: "2", name: "A Palace That Never Sleeps", description: "Buckingham Palace operates year-round, regardless of whether the monarch is in residence. At any given time, chefs, cleaners, clerks, guards, conservators, and administrators are at work.\nThe palace functions like a small village, complete with its own post office, police station, medical facilities, and internal communication systems." }, 
+                            { id: "3", name: "The Hierarchy of Service", description: "Life inside the palace follows a strict hierarchy inherited from centuries of court tradition. Roles are clearly defined, from senior courtiers to junior household staff.\nThis structure ensures efficiency and discretion, qualities essential in a place where privacy and protocol are paramount." }, 
+                            { id: "4", name: "Royal Routines and Private Spaces", description: "Despite its scale, royal life inside the palace is governed by routine. Meals follow precise timing, correspondence is managed daily, and private apartments remain distinctly separate from state areas.\nThese private rooms are rarely seen by the public, emphasizing that behind ceremony lies ordinary domestic life shaped by extraordinary responsibility." }, 
+                            { id: "5", name: "Hidden Corridors and Invisible Labor", description: "Much of the palace’s daily operation happens out of sight. Narrow corridors, back staircases, and service lifts allow staff to move unnoticed during official events.\nThis invisible infrastructure preserves the illusion of effortlessness, a hallmark of royal presentation." }, 
+                            { id: "6", name: "Continuity Through Routine", description: "What gives Buckingham Palace stability is not grandeur but repetition. Daily rituals, small tasks, and long-standing customs anchor the monarchy in continuity.\nBehind the gates, the palace endures not through spectacle, but through the quiet discipline of everyday life repeated across generations." }, 
                         ], 
                     },
                     { 
                         id: "10", 
                         title: "Rituals, Traditions, and the Balcony Moments", 
                         contents: [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "Few places in the world are as closely associated with ritual as Buckingham Palace. Over time, its façades, gates, and interiors have become anchors for repeated gestures that transform monarchy into shared national experience. These traditions are not accidental decorations of power, but carefully preserved acts that allow continuity to be seen, remembered, and felt." }, 
+                            { id: "2", name: "The Emergence of Ritual at Buckingham Palace", description: "In the early years of the palace, royal ritual was still centered elsewhere, particularly at St James’s Palace. As Buckingham Palace became the main royal residence in the 19th century, ceremonies gradually migrated with it.\nWhat emerged was a new ceremonial geography, where the palace itself became inseparable from the performance of monarchy." },
+                            { id: "3", name: "The Balcony as an Unplanned Icon", description: "The famous central balcony was never designed for mass communication. Its symbolic role began organically when monarchs acknowledged crowds gathered outside during moments of celebration.\nOver time, this simple act evolved into a powerful tradition, turning the palace façade into a visual bridge between sovereign and people." },
+                            { id: "4", name: "Rituals of Repetition and Recognition", description: "Changing of the Guard, royal processions, and formal appearances rely on repetition rather than novelty. The predictability of these rituals allows the public to recognize authority instantly.\nEach uniform, musical cue, and movement is preserved with precision, creating a sense of timelessness even as society evolves." },
+                            { id: "5", name: "Moments of Crisis and Collective Emotion", description: "Balcony appearances often follow moments of national strain, such as wars, transitions of power, or periods of mourning.\nIn these instances, ritual serves not as spectacle but as reassurance, offering visible continuity when uncertainty dominates public life." },
+                            { id: "6", name: "Why Ritual Still Matters Today", description: "In a modern world defined by speed and constant change, ritual provides pause. The balcony moments at Buckingham Palace create shared reference points that transcend politics and generations.\nThese traditions endure not because they resist change, but because they adapt quietly while preserving meaning, allowing the palace to remain a living symbol rather than a frozen relic." },
                         ], 
                     },
                     { 
                         id: "11", title: "Art, Treasures, and Hidden Corners", 
                         content: [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "Behind the ceremonial routes and famous rooms of Buckingham Palace lies a more intimate and revealing world. Artworks, objects, and overlooked spaces tell stories that are rarely part of official narratives, offering insight into the personal tastes of monarchs, the practical realities of palace life, and the quiet accumulation of history over centuries." }, 
+                            { id: "2", name: "A Royal Collection Shaped by Personal Taste", description: "The art within Buckingham Palace was not assembled as a museum collection, but as a reflection of royal interests and diplomacy. Paintings by masters such as Rembrandt, Rubens, Canaletto, and Vermeer entered the palace through inheritance, purchase, and political exchange.\nEach acquisition reflects a moment in history, whether celebrating artistic excellence, cementing alliances, or projecting cultural authority." }, 
+                            { id: "3", name: "Rooms That Change with Time", description: "Many palace rooms have served radically different purposes across generations. Drawing rooms became war offices, private apartments became meeting spaces, and ceremonial halls were occasionally adapted for practical needs.\nThese shifting uses reveal how the palace has always been a living environment, reshaped by circumstance rather than frozen in design." }, 
+                            { id: "4", name: "Objects with Unexpected Stories", description: "Beyond famous artworks, the palace holds countless smaller objects charged with meaning. Gifts from foreign rulers, handcrafted items from colonial visits, and personal mementos from family events are woven quietly into palace life.\nThese items humanize the monarchy, reminding visitors that history is often preserved through everyday objects rather than grand monuments." }, 
+                            { id: "5", name: "Hidden Corridors and the Palace Behind the Palace", description: "Buckingham Palace contains an extensive network of service corridors, staircases, and hidden doorways designed to keep staff movements invisible during official events.\nThese spaces reveal the scale of labor required to maintain the illusion of effortless ceremony and highlight the unseen workforce that sustains royal life." }, 
+                            { id: "6", name: "Preservation, Discovery, and Ongoing Care", description: "Conservators work constantly behind the scenes to protect fragile artworks and historic interiors from light, humidity, and wear.\nOccasionally, restoration uncovers forgotten details or previously hidden features, allowing new chapters of palace history to emerge long after the events themselves have passed." }, 
+                            { id: "7", name: "The Value of What Is Rarely Seen", description: "What makes Buckingham Palace especially compelling is not only what it shows, but what it conceals. Hidden corners, repurposed rooms, and quietly preserved objects reveal a palace defined by accumulation rather than design alone.\nIn these spaces, the palace tells its most honest stories, shaped by use, memory, and time rather than spectacle." }, 
                         ], 
                     },
                     { 
                         id: "12", 
                         title: "Buckingham Palace Today: Continuity, Change, and the Modern Monarchy", 
                         contents: [ 
-                            { id: "", description: "" }, 
-                            { id: "", name: "", description: "" }, 
+                            { id: "1", description: "In the 21st century, Buckingham Palace stands at the intersection of tradition and transformation. It remains a royal residence, a working institution, and a powerful national symbol, yet it also operates in a world shaped by transparency, technology, and public scrutiny. Understanding the palace today means seeing it not as a relic, but as a place continually adapting to modern expectations." }, 
+                            { id: "2", name: "A Working Palace in a Digital Age", description: "Buckingham Palace continues to function as the administrative heart of the monarchy. State visits, official audiences, and ceremonial events still unfold within its walls.\nAt the same time, modern communication, security systems, and digital operations quietly shape daily life, allowing ancient rituals to coexist with contemporary governance." }, 
+                            { id: "3", name: "Opening the Palace to the Public", description: "Unlike in earlier centuries, parts of Buckingham Palace are now regularly opened to visitors. The State Rooms welcome thousands each year, transforming once-private spaces into educational experiences.\nThis openness reflects a broader shift toward accessibility, allowing the public to engage directly with royal history rather than view it from a distance." }, 
+                            { id: "4", name: "Restoration, Sustainability, and the Future", description: "The palace is undergoing one of the most extensive restoration projects in its history. Aging infrastructure, electrical systems, and plumbing are being replaced to ensure long-term survival.\nSustainability has become a priority, signaling a monarchy attentive not only to heritage, but to environmental responsibility." }, 
+                            { id: "5", name: "A Stage for National Reflection", description: "Buckingham Palace remains the backdrop for moments of collective emotion. Celebrations, memorials, and times of mourning draw people to its gates.\nIn these moments, the palace serves less as a seat of power and more as a shared national space where history, identity, and memory converge." }, 
+                            { id: "6", name: "Continuity Through Adaptation", description: "What defines Buckingham Palace today is not resistance to change, but controlled evolution. Traditions endure because they are selectively renewed.\nBy adapting without abandoning its core identity, the palace continues to function as a bridge between past and present, ensuring the monarchy remains relevant in an ever-changing world." }, 
                         ], 
                     },
             

@@ -26,8 +26,7 @@ Don't change what's within the content array!
 -> Second prompt for Content:
 
 Now let's make the actual content for the chapter which we've previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
-Careful not to write just about architecture. I also need a lot of actualy story
-that happened on the given place.
+Careful not to write just about architecture. I also need a lot of actually story that happened on the given place.
 Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
 Don't use bullet points. Please, put the number of the subchapter when 
 you write the name of the subchapter. Please, also create an intro for the chapter.
