@@ -12,9 +12,6 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
     const ITEM_WIDTH = SCREEN_WIDTH; // //ITEM_WIDTH is the width of each content
     const [isDisabledBack, setIsDisabledBack] = useState(false);
     const [isDisabledNext, setIsDisabledNext] = useState(false);
-    const handleOpenBrowser = async () => {
-        await WebBrowser.openBrowserAsync('https://www.virtualststephens.org.uk/sites/virtualststephens.org.uk/files/panoramas/1360s/tour.html');
-    };
     
     useEffect(() => {
         if(page <= 0){
@@ -99,19 +96,7 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                                                     </Text>
                                                 }
                                                 {content.item.description.split('\n').map((line: any, index: any) => (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify"/*, width: "100%"*/ }}>
-=======
                                                     <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
->>>>>>> fd4af2b (Content For Westminster and Houses Of Parliament)
-=======
-                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
->>>>>>> fd4af2b (Content For Westminster and Houses Of Parliament)
-=======
-                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
->>>>>>> main
                                                         {line}
                                                     </Text>
                                                 ))}

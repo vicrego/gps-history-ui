@@ -13,57 +13,70 @@ Background are being removed by:
 https://www.remove.bg/
 
 For content generation, 
--> First prompt for Chapter delineation:
-Let's try to create some content. First, let's create a chapter list
-delineation for {Name of the Building}. You'll research for the most accurate historical sources, but first let's organize the chapters the content will have. These chapters will be organized in a chronological way, from the beggning until the contemporaneous times, going through every major period of the building - it will have informative descriptions and various curiosities as you would see in a guided tour. 
-Careful not to write just about architecture! I also need a lot of actually story
-that happened on the given place.
-But for now we only need to delineate the chapters for that. Please, don't forget to name the chapter.
-Make sure to also list just the names of the chapter separately, so I can copy them easily.
-Also, give me the chapters, but with this format:  { id: "12", title: "What It Means Today", content: [ { id: "", description: "" }, { id: "", description: "" }, ], }
-Don't change what's within the content array!
+-> Use first this prompt for Chapter delineation:
+Let's try to create some content. First, let's create a chapter list delineation for {Name of the Building}. You'll research for the most accurate historical sources, but first let's organize the chapters the content will have. These chapters will be organized in a chronological way, from the beginning until the contemporaneous times, going through every major period of the building - it will have informative descriptions and various curiosities as you would see in a guided tour. But for now we only need to delineate the chapters for that. Please, don't forget to name the chapter. Make sure to also list just the names of the chapter separately, so I can copy them easily. Also, give me the chapters, but with this format: { id: "12", title: "What It Means Today", content: [ { id: "", description: "" }, { id: "", description: "" }, ], } Don't change what's within the content array!
 
--> Second prompt for Content:
+
+FIRST PROMPT!!
 
 Now let's make the actual content for the chapter which we've previously established as {name_of_the_chapter}. It must be very informative in terms of description of the building and history - filled with curiosities, as you would see in a guided tour. 
-Careful not to write just about architecture. I also need a lot of actually story that happened on the given place.
+Careful not to write just about architecture. I also need a lot of actually story
+that happened on the given place.
 Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
 Don't use bullet points. Please, put the number of the subchapter when 
 you write the name of the subchapter. Please, also create an intro for the chapter.
-Everytime you jump a line
-use the symbol \n since this text will be used within a coding structure. 
+Everytime you jump a line use just the symbol \n since this text will be used within a coding structure - don't jump the line itself! 
 I don't mean to use \n in between subchapter or at the end of the subchapter's text - avoid them -, I mean within the sub-chapters if needed.
 
 -------------------------------------------
 
 GITHUB WORKFLOW
 
-Summary Table
-Step 	Action	    Why?
-Push	git push    origin dev	     Uploads your code to the server so it can be merged.
-Pull	git pull    origin main	     Syncs your local main with the new production code.
-Sync	git merge   main (on dev)	 Keeps dev perfectly in line with main for the next feature.
+- Merge: Let's say you have created a branch for the purpose of developing a single feature. When you want to bring those changes back to master, you probably want merge.
+Rebase:  A second scenario would be if you started doing some development and then another developer made an unrelated change. You probably want to pull and then rebase to base your changes from the current version from the repository.
 
--> UPDATE MAIN: 
+How to keep it "Clean" in the future
+To avoid that "spaghetti" look in your Git graph, try this "Clean Workflow":
+- Stop using git pull (standard): Standard pull creates those messy merge bubbles. Use git pull --rebase instead. It keeps your history in a straight line.
+- Commit larger chunks: Instead of five commits for "Content For Westminster," try to finish the whole component and make one solid commit.
 
-* Switch to the main branch:
-git checkout main
+The "Golden Rule" of Syncing:
+- If you are on dev and want main updates: git rebase main.
+- If you are on main and want to bring in dev: git merge dev.
 
-* Pull the latest main from GitHub: (Just in case there are changes there you don't have)
-git pull origin main
 
-* Merge dev into main:
-git merge dev
-
-* Push the updated main back to GitHub:
-git push origin main
-
-* Switch back to dev to keep working:
-git checkout dev
+Step    Action  Why?
+1. Save     git push origin dev     Uploads your current dev work to the server (GitHub).
+2. Switch   git checkout main       Moves your local environment from the "workspace" to the "production" branch.
+3. Update   git pull origin main    Ensures your local main is up to date with any changes others made.
+4. Merge    git merge dev           This is the key: It pulls all the new code from dev into main.
+5. Finish   git push origin main
 
 --------------------------------
+
+*** React Technical Issues
 
 -> When React component name change doesn't update properly on imported componentes,use:
 
 In VS Code, open the Command Palette (Cmd + Shift + P).
 TypeScript: Restart TS Server
+
+--------------------------------
+
+*** EAS Build Development mode:
+
+npx eas build --profile development --platform android
+
+If we need to update the build over the Phone, the Fix: 
+You must install the "Development Build" (the APK/IPA) that was created by EAS onto your phone.
+
+-> Go to your Expo Dashboard: https://expo.dev/accounts/victorrego
+-> Download the latest successful build for your moto_g53_5G. Paste the file on the download folder from Android.  Install that APK on your phone.
+-> Open that specific app (it will have your project's icon, not the Expo logo) and then run:
+npx expo start --dev-client
+
+
+If there's an error when launching Android Emulator, like the one underneath:
+adb: failed to install /var/folders/6f/49h_wccj1sv61y_71z4wr6b00000gn/T/eas-cli-nodejs/eas-build-run-cache/1ff32ea2-de81-4812-a087-972185779115_a990c3ad-8817-478f-bd14-383f5f2b8a5c.apk: Failure
+Simply executable from the Android Emulator, procceed downloading apk file from Expo Dashboard. Finally, drag the apk file
+and release it over the Android Emulator. 

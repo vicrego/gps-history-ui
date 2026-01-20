@@ -39,6 +39,12 @@ export const chapterImages = {
         chapter4: require("../../assets/images/poi/london/buckingham-palace/chapter4/chapter4.jpg"),
         chapter5: require("../../assets/images/poi/london/buckingham-palace/chapter5/chapter5.jpg"),
         chapter6: require("../../assets/images/poi/london/buckingham-palace/chapter6/chapter6.jpg"),
+        chapter7: require("../../assets/images/poi/london/buckingham-palace/chapter7/chapter7.jpg"),
+        chapter8: require("../../assets/images/poi/london/buckingham-palace/chapter8/chapter8.jpg"),
+        chapter9: require("../../assets/images/poi/london/buckingham-palace/chapter9/chapter9.jpg"),
+        chapter10: require("../../assets/images/poi/london/buckingham-palace/chapter10/chapter10.jpeg"),
+        chapter11: require("../../assets/images/poi/london/buckingham-palace/chapter11/chapter11.jpg"),
+        chapter12: require("../../assets/images/poi/london/buckingham-palace/chapter12/chapter12.jpg"),
     }
 };
 
@@ -66,28 +72,85 @@ export const mapFeatures: FeatureCollection<Point> =
     features: [
         {
             type: "Feature",
-            id: "london_tower",
+            id: "tower_of_london",
             geometry: {
                 type: "Point",
                 coordinates: [ -0.0761, 51.5081 ]
             },
             properties: {
-                title: "Tower of London",
+                title: "Tower Of London",
                 icon: "tower_of_london",
-                iconSize: 0.6,                
-                image: "tower.jpg",
-                short: "Historic castle built by William the Conqueror.",
+                iconSize: 0.6,
+                //short: "",
                 //description: "Full history...",
                 //audio: null,
-                pages: [
-                    {
-                        description: "Hi"
+                chapters: [    
+                    { 
+                        id: "1", title: "Before the Tower: Roman Walls and Saxon London", 
+                        contents: 
+                            [ 
+                                { id: "1", description: "The Tower of London was built in a stretch of ground that was already heavy with history. The Normans did not choose an empty or accidental site; they built upon layers of Roman engineering, Saxon settlement, and centuries of conflict, trade, and survival. To understand why the Tower stands where it does, we must step back nearly a thousand years before William the Conqueror, to a time when London was a Roman city and later a fragile Saxon stronghold facing invasion from all sides." }, 
+                                { id: "2", name: "Roman Londinium and the First Defensive Walls", description: "The story begins in the late Roman period, around the late 2nd and early 3rd centuries AD, when Londinium was a thriving provincial capital of the Roman Empire. After suffering raids and instability, the Romans built a massive defensive wall around the city, nearly three kilometers long.\n The eastern edge of this wall ran close to the future site of the Tower. Thick stone foundations, bastions, and gates formed a formidable barrier against attack. Even today, fragments of these Roman walls survive within the Tower complex, silently linking the medieval fortress to its ancient past.\n The Romans understood the strategic value of the Thames. It was both a highway for trade and a potential invasion route, and the wall’s alignment reflects a careful balance between access and defense." }, 
+                                { id: "3", name: "The Decline of Rome and a Vulnerable City", description: "When Roman authority collapsed in Britain in the early 5th century, Londinium entered a period of uncertainty. The walls remained, but without imperial troops or funding, the city’s defenses deteriorated.\n For a time, London’s population shrank dramatically. Parts of the old Roman city were abandoned, while small communities clustered around safer or more economically viable areas. The once-proud walls became both shelter and ruin, reused, repaired, or simply left to crumble.\n This vulnerability would shape London’s future. The idea that strong walls were essential to survival never disappeared, even when the political structures that built them did." }, 
+                                { id: "4", name: "Saxon London and the Return of Life", description: "By the 7th century, Saxon London had re-emerged as an important trading center. The settlement known as Lundenwic developed slightly west of the old Roman city, closer to today’s Covent Garden, but the Roman walls were never forgotten.\n As Viking raids intensified in the 9th century, the old Roman defenses were reoccupied and repaired under King Alfred the Great. London became a fortified burh, a protected town designed to resist attack.\n The eastern edge of the Roman wall once again gained importance, guarding access from the river and forming a defensive anchor point where later Norman builders would establish the Tower." }, 
+                                { id: "5", name: "Raids, Sieges, and the Memory of Fear", description: "Saxon London lived under constant threat. Viking ships could appear on the Thames with terrifying speed, and the river became both lifeline and danger.\n Battles, sieges, and negotiations unfolded in and around the city walls. Control of London meant control of trade, taxation, and royal authority. These repeated threats ingrained a culture of fortification and suspicion toward outsiders.\n When the Normans arrived in 1066, they inherited not a peaceful city but one shaped by centuries of defense and anxiety. By building the Tower beside the ancient Roman wall, they deliberately tapped into this long memory of fear, power, and survival, anchoring their new rule in the deepest foundations of London’s past." }, 
+                            ], 
                     },
-                    {
-                        description: "Hi2"
+                    { id: "2", title: "The Norman Conquest and the Birth of the White Tower", 
+                        contents: [ 
+                            { id: "1", description: "In 1066, the Norman Conquest did not simply change who ruled England; it transformed how power was displayed, enforced, and feared. When William of Normandy claimed the English crown, London was the greatest prize of all, wealthy, populous, and potentially rebellious. The Tower of London was born not as a palace or a prison, but as a statement carved in stone: Norman rule was permanent, unchallengeable, and watching over the city. What began as a military necessity would become one of the most powerful symbols in British history." },
+                            { id: "2", name: "William the Conqueror and the Need to Control London", description: "After his victory at Hastings, William entered London cautiously. The city had not been conquered by force, and its Anglo-Saxon population was large, proud, and uneasy about their new ruler. Rather than trust loyalty, William relied on fortifications.\n One of his first acts was to order a series of castles around England, with London’s fortress placed at the southeastern corner of the old Roman walls. This location was no accident. From here, the Normans could control river traffic on the Thames, monitor movement in and out of the city, and retreat by water if rebellion erupted.\n The early Tower was initially a timber fort, thrown up quickly as Norman troops secured the area. Even this temporary structure would have loomed menacingly over the surrounding streets, a foreign military presence in the heart of the city." }, 
+                            { id: "3", name: "The Construction of the White Tower", description: "Around 1078, William ordered the replacement of the wooden fort with a massive stone keep, what we now call the White Tower. Its construction marked a turning point: this was no temporary occupation, but a permanent Norman stronghold.\n The stone was brought from Caen in Normandy, a deliberate choice that tied the building materially and symbolically to William’s homeland. The walls, up to four meters thick in places, were designed to intimidate as much as defend. To Anglo-Saxon Londoners, this towering block of pale stone would have seemed alien and overwhelming, utterly different from traditional English buildings.\n The keep housed living quarters, storerooms, and a chapel, blending military function with royal authority. It was both fortress and palace, a place from which the king’s power radiated outward." },
+                            { id: "4", name: "Fear, Resistance, and Norman Authority", description: "The White Tower was built during a period of unrest. Rebellions flared across England as Norman rule tightened. The Tower served as a refuge for Norman elites and a warning to dissenters.\n Its very presence discouraged uprising. Soldiers stationed within could deploy rapidly into the city, while the fortress itself was nearly impregnable by contemporary standards. The Tower was not merely defensive; it was psychological warfare in stone.\n Local resentment simmered, and stories circulated of harsh justice meted out to those who challenged Norman authority. The Tower quickly became associated with fear, long before it gained its later reputation as a prison." },
+                            { id: "5", name: "Laying the Foundations of a Symbol", description: "William did not live to see the White Tower completed, but his vision endured. Subsequent Norman kings expanded and reinforced the site, turning a single keep into a complex fortress.\n What began as a tool of conquest gradually became embedded in the life of the kingdom. Royal ceremonies, military planning, and later imprisonment would all take place within its walls.\n The White Tower’s birth during the Norman Conquest set the tone for everything that followed. It was built to dominate, to endure, and to remind England that its rulers now governed from behind stone walls as formidable as their authority." },
+                        ], 
                     },
-                ],
-            },
+                    { 
+                        id: "3", title: "A Fortress Takes Shape: Kings, Walls, and Expanding Power", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "4", title: "Royal Residence and Medieval Court Life", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "5", title: "The Tower as Prison: Power, Fear, and Control", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "6", title: "Executions, Scandals, and Tudor Drama", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "7", title: "Crown Jewels, Ceremony, and the Symbol of Authority", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "8", title: "From Fortress to Arsenal: The Tower in War and Defense", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "9", title: "Decline, Curiosity, and the Age of Visitors", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "10", title: "Victorian Reinvention: Restoring the Medieval Past", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "11", title: "The Tower at War: Espionage, Executions, and World Wars", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "12", title: "Legends, Ravens, and Living Traditions", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    },
+                    { 
+                        id: "13", title: "The Tower Today: Memory, Power, and the Modern World", 
+                        contents: [ { id: "", description: "" }, { id: "", description: "" }, ], 
+                    }
+                ]
+            }   
 
         }, 
         {
@@ -183,18 +246,22 @@ export const mapFeatures: FeatureCollection<Point> =
                         ], 
                     },
                     { 
-                        id: "7", title: "War at the Gates: Buckingham Palace in World War I and II", 
+                        id: "7", 
+                        title: "War at the Gates: Buckingham Palace in World War I and II", 
+                        image: chapterImages.buckingham_palace.chapter7,
                         contents: [ 
                             { id: "1", description: "The two World Wars transformed Buckingham Palace from a symbol of ceremony into a place of endurance. During these years, the palace stood not above national suffering but within it, absorbing fear, loss, and resilience alongside the people of Britain. War stripped away pageantry and revealed the monarchy at its most human." }, 
                             { id: "2", name: "Buckingham Palace and the First World War", description: "When World War I began in 1914, Buckingham Palace became both a residence and a center of wartime morale. King George V and Queen Mary chose to remain in London, rejecting suggestions that they relocate to safer countryside estates.\nThe palace hosted military briefings, charity events, and hospital fundraisers, reinforcing the image of a monarchy sharing the burdens of war rather than escaping them." },
                             { id: "3", name: "A Palace Adjusts to Wartime Reality", description: "Daily life inside the palace changed dramatically. Lights were dimmed or blacked out to avoid airship detection, windows were covered, and gardens were repurposed for practical use.\nFood rationing affected even royal tables, and court life was simplified, signaling solidarity with the population enduring the same restrictions." },
-                            { id: "4", name: "The Blitz and the Palace Under Fire", description: "During World War II, Buckingham Palace became a direct target. Between 1940 and 1941, the palace was bombed multiple times during the Blitz.\nOne bomb destroyed the palace chapel, while others damaged courtyards and nearby rooms. King George VI and Queen Elizabeth were present during several attacks, an experience that deeply shaped their public image." },
+                            { id: "4", name: "The Blitz and the Palace Under Fire", videoId: "KxbV8EcaSkk", description: "During World War II, Buckingham Palace became a direct target. Between 1940 and 1941, the palace was bombed multiple times during the Blitz.\nOne bomb destroyed the palace chapel, while others damaged courtyards and nearby rooms. King George VI and Queen Elizabeth were present during several attacks, an experience that deeply shaped their public image." },
                             { id: "5", name: "“I’m Glad We’ve Been Bombed”", description: "After one bombing raid, Queen Elizabeth famously remarked that she was glad the palace had been hit because it allowed her to look the East End in the face.\nThis statement captured a powerful moment of identification between monarchy and people, transforming the palace from a distant symbol into a shared site of vulnerability." },
                             { id: "6", name: "A Symbol That Refused to Fall", description: "Despite damage and danger, Buckingham Palace remained operational throughout the war. Repairs were often delayed to maintain morale and avoid diverting resources.\nThe survival of the palace became a symbol of national endurance, proving that even under direct attack, Britain’s institutions and identity would not collapse." }, 
                         ], 
                     },
                     { 
-                        id: "8", title: "A Symbol Under Scrutiny: Protest, Change, and the 20th Century Monarchy", 
+                        id: "8", 
+                        title: "A Symbol Under Scrutiny: Protest, Change, and the 20th Century Monarchy", 
+                        image: chapterImages.buckingham_palace.chapter8,
                         contents: [ 
                             { id: "1", description: "The 20th century challenged the monarchy in ways no previous era had. As society became more democratic, media-driven, and outspoken, Buckingham Palace shifted from unquestioned symbol to contested space. The gates that once framed reverence increasingly became gathering points for debate, dissent, and dialogue." }, 
                             { id: "2", name: "The Palace and a Changing Public Voice", description: "As universal suffrage expanded and class structures shifted, public attitudes toward monarchy grew more complex. Buckingham Palace became a focal point for both celebration and criticism.\nCrowds still gathered for royal occasions, but they also assembled to question the relevance and cost of the monarchy in a modern state." }, 
@@ -207,6 +274,7 @@ export const mapFeatures: FeatureCollection<Point> =
                     {
                         id: "9", 
                         title: "Inside the Palace: Daily Life Behind the Gates", 
+                        image: chapterImages.buckingham_palace.chapter9,
                         contents: 
                         [ 
                             { id: "1", description: "Beyond the ceremonial façade and guarded gates lies a world governed by routine, hierarchy, and quiet precision. Buckingham Palace is not only a symbol of monarchy but also a functioning household and workplace, where hundreds of people live and work to sustain the rhythm of royal life. Exploring daily life inside reveals a palace defined as much by schedules and service as by splendor." }, 
@@ -220,6 +288,7 @@ export const mapFeatures: FeatureCollection<Point> =
                     { 
                         id: "10", 
                         title: "Rituals, Traditions, and the Balcony Moments", 
+                        image: chapterImages.buckingham_palace.chapter10,
                         contents: [ 
                             { id: "1", description: "Few places in the world are as closely associated with ritual as Buckingham Palace. Over time, its façades, gates, and interiors have become anchors for repeated gestures that transform monarchy into shared national experience. These traditions are not accidental decorations of power, but carefully preserved acts that allow continuity to be seen, remembered, and felt." }, 
                             { id: "2", name: "The Emergence of Ritual at Buckingham Palace", description: "In the early years of the palace, royal ritual was still centered elsewhere, particularly at St James’s Palace. As Buckingham Palace became the main royal residence in the 19th century, ceremonies gradually migrated with it.\nWhat emerged was a new ceremonial geography, where the palace itself became inseparable from the performance of monarchy." },
@@ -230,8 +299,10 @@ export const mapFeatures: FeatureCollection<Point> =
                         ], 
                     },
                     { 
-                        id: "11", title: "Art, Treasures, and Hidden Corners", 
-                        content: [ 
+                        id: "11", 
+                        title: "Art, Treasures, and Hidden Corners", 
+                        image: chapterImages.buckingham_palace.chapter11,
+                        contents: [ 
                             { id: "1", description: "Behind the ceremonial routes and famous rooms of Buckingham Palace lies a more intimate and revealing world. Artworks, objects, and overlooked spaces tell stories that are rarely part of official narratives, offering insight into the personal tastes of monarchs, the practical realities of palace life, and the quiet accumulation of history over centuries." }, 
                             { id: "2", name: "A Royal Collection Shaped by Personal Taste", description: "The art within Buckingham Palace was not assembled as a museum collection, but as a reflection of royal interests and diplomacy. Paintings by masters such as Rembrandt, Rubens, Canaletto, and Vermeer entered the palace through inheritance, purchase, and political exchange.\nEach acquisition reflects a moment in history, whether celebrating artistic excellence, cementing alliances, or projecting cultural authority." }, 
                             { id: "3", name: "Rooms That Change with Time", description: "Many palace rooms have served radically different purposes across generations. Drawing rooms became war offices, private apartments became meeting spaces, and ceremonial halls were occasionally adapted for practical needs.\nThese shifting uses reveal how the palace has always been a living environment, reshaped by circumstance rather than frozen in design." }, 
@@ -244,6 +315,7 @@ export const mapFeatures: FeatureCollection<Point> =
                     { 
                         id: "12", 
                         title: "Buckingham Palace Today: Continuity, Change, and the Modern Monarchy", 
+                        image: chapterImages.buckingham_palace.chapter12,
                         contents: [ 
                             { id: "1", description: "In the 21st century, Buckingham Palace stands at the intersection of tradition and transformation. It remains a royal residence, a working institution, and a powerful national symbol, yet it also operates in a world shaped by transparency, technology, and public scrutiny. Understanding the palace today means seeing it not as a relic, but as a place continually adapting to modern expectations." }, 
                             { id: "2", name: "A Working Palace in a Digital Age", description: "Buckingham Palace continues to function as the administrative heart of the monarchy. State visits, official audiences, and ceremonial events still unfold within its walls.\nAt the same time, modern communication, security systems, and digital operations quietly shape daily life, allowing ancient rituals to coexist with contemporary governance." }, 
@@ -281,7 +353,6 @@ export const mapFeatures: FeatureCollection<Point> =
                         [
                             {
                                 id: "1",
-                                //name: "From Monastery to Royal Church",
                                 description: "Long before Westminster Abbey became the stage for coronations, royal weddings, and state funerals, this place was quiet, remote, and spiritual. \nWhat you see today began not as a royal monument, but as a monastery built on marshy ground, dedicated to prayer, learning, and isolation from the world. The transformation from humble religious house to England’s most important ceremonial church is a story shaped by geography, ambition, and royal power."
                             },
                             {
@@ -319,7 +390,6 @@ export const mapFeatures: FeatureCollection<Point> =
                         [
                             {
                                 id: "1",
-                                //name: "A King of Faith and Vision",
                                 description: "Edward the Confessor was not a conquering warrior king but a deeply pious ruler whose vision reshaped both English monarchy and sacred architecture. Raised in exile in Normandy, Edward absorbed continental ideas of kingship and church-building that were far more monumental than anything England had yet seen. When he became king in 1042, he chose Westminster, then a quiet riverside site west of London, as the place where his spiritual ideals and royal authority would merge. His decision to rebuild the monastery there into a grand stone church was unprecedented for an English king and marked a clear statement: this would be a royal church, closely bound to the crown itself."
                             },
                             { 
@@ -357,7 +427,6 @@ export const mapFeatures: FeatureCollection<Point> =
                         [
                             {
                                 id: "1",
-                                //name: "From Anglo-Saxon Roots to Norman Ambition",
                                 description: "After the Norman Conquest of 1066, Westminster Abbey entered a new phase that reflected the dramatic political and cultural shift taking place in England. William the Conqueror deliberately chose the Abbey as the site of his coronation on Christmas Day 1066, a symbolic act that bound Norman rule to the sacred authority already established there. From this moment onward, the Abbey was no longer simply an English royal church but the stage upon which Norman power presented itself as legitimate, divinely sanctioned, and permanent."
                             },
                             {
@@ -620,7 +689,6 @@ export const mapFeatures: FeatureCollection<Point> =
                         [
                             {
                                 id: "1",
-                                name: "",
                                 description: "As the 20th century dawned, Westminster Abbey stood as a monument to continuity in a rapidly changing world, but it soon faced one of the greatest threats in its history. During the First and Second World Wars, London became a primary target of aerial bombardment, and the Abbey was not spared danger. Though miraculously it avoided catastrophic destruction, several bombs fell nearby, shattering windows and damaging the roof. Abbey staff and volunteers worked tirelessly to protect priceless treasures, lowering medieval manuscripts, coronation regalia, and fragile relics into underground shelters. Sandbags were once stacked around royal tombs and statues, transforming the sacred interior into something resembling a fortified stronghold. The survival of the Abbey during wartime reinforced its symbolic role as a spiritual anchor for the nation."
                             },
                             { 

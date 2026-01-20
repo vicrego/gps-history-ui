@@ -16,12 +16,9 @@ import PoiModal from '../components/PoiModal';
 let publicToken = "pk.eyJ1IjoidmljcmVnbyIsImEiOiJjbWc2OWQ2cjkwYmR3MmxzZHZ4aWpzcDM2In0.7_PNb8rw61ISZt1Q7ysIuw";
 Mapbox.setAccessToken(publicToken);
 
-const bounds = [
-    [-122.66336, 37.492987], // Southwest coordinates
-    [-122.250481, 37.871651] // Northeast coordinates
-];
 
-const Map = ({currentLocation, cities}: any) => {
+const Map = ({currentLocation, cities, citySelectedArray}: any) => {
+  console.log("citySelectedArray Map: ", citySelectedArray.bounds)
   //Index manages every state that will be displayed or used by shared component
   const [destinationRoute, setDestinationRoute] = useState(null);
   const [destinationDistance, setDestinationDistance] = useState(0);
@@ -36,11 +33,8 @@ const Map = ({currentLocation, cities}: any) => {
   const [destinationReached, setDestinationReached] = useState(false);
 
   //Gets permission and sets coordinates based on user's location
-
   
   useEffect(() => {   
-    //console.log("backgroundImage: ", mapFeatures[0].features[0].properties.iconStyle.backgroundImage)
-    //console.log("localCoordinates: ", localCoordinates[0].coords)
     destinationDistance && (
       setCurrentDistanceDuration(calculationDistanceAndDuration(currentLocation, destinationDistance, destinationDuration, destinationRoute))
     )   
@@ -59,7 +53,6 @@ const Map = ({currentLocation, cities}: any) => {
     setSearchComponent(true);
   }
   
-
   return (
     <View style={styles.container}>
       {!destinationDistance || searchComponent ? (
@@ -96,7 +89,8 @@ const Map = ({currentLocation, cities}: any) => {
       }
       <Mapbox.MapView
         style={styles.map}
-        styleURL={Mapbox.StyleURL.Light}
+        //styleURL={Mapbox.StyleURL.Light}
+        styleURL="mapbox://styles/vicrego/cmkkzon37000901s8ev408spz"
         rotateEnabled={false}
         pitchEnabled={true}
         onPress={() => setSearchComponent(false)}
@@ -107,20 +101,16 @@ const Map = ({currentLocation, cities}: any) => {
             zoomLevel={13}
             maxZoomLevel={16}
             minZoomLevel={13}
-            centerCoordinate={[currentLocation.longitude, currentLocation.latitude]}
+            centerCoordinate={citySelectedArray.centerCoordinate}
             animationMode={'flyTo'}
             pitch={0}
             animationDuration={6000}
             maxBounds={
                 //ne: [ -0.2607, 51.4129],     // northeast corner (lng, lat)
                 //sw: [ 0.1287, 51.5745 ]      // southwest corner (lng, lat)
-                cities[0].bounds
+              citySelectedArray.bounds
             }
           /> 
-          <Mapbox.PointAnnotation
-            id="userLocation"
-            coordinate={[currentLocation.longitude, currentLocation.latitude]}
-          />
           <View>
             <Mapbox.Images
               images={

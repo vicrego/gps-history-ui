@@ -11,7 +11,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
     const [filteredChapters, setFilteredChapters] = useState();
     const [visiblePages, setVisiblePages] = useState(false);
     const chapters = poiFeatures?.properties.chapters;
-    console.log("poiFeatures POI Modal: ", poiFeatures)
+    
     const handleClick = (chapter: any) => {
         let filteredChapters = chapters.filter((data: any) => data.title === chapter);
         setFilteredChapters(filteredChapters);
