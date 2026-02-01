@@ -20,7 +20,15 @@
       }
     },
     "preview": {
-      "distribution": "internal"
+      "extends": "production",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "ANDROID_HOME": "/Users/victor/Library/Android/sdk",
+        "RNMAPBOX_MAPS_DOWNLOAD_TOKEN": "sk.eyJ1IjoidmljcmVnbyIsImEiOiJjbWc2OWpta2wwY2twMmtza2tndnZ5cXVmIn0.amruLbcVGnqVqKNFRCATtQ"
+      }
     },
     "production": {
       "autoIncrement": true

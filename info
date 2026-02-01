@@ -25,8 +25,8 @@ that happened on the given place.
 Within the chapter you can write subtopics - for exemple: Chapter 2: Building the Cathedral. Subtopic 1: The first man to build the cathedral Subtopic 2: The logistical difficulties to build the cathedral etc...
 Don't use bullet points. Please, put the number of the subchapter when 
 you write the name of the subchapter. Please, also create an intro for the chapter.
-Everytime you jump a line use just the symbol \n since this text will be used within a coding structure - don't jump the line itself! 
-I don't mean to use \n in between subchapter or at the end of the subchapter's text - avoid them -, I mean within the sub-chapters if needed.
+Everytime you jump a paragraph use only the symbol \n since this text will be used within a coding structure – don't jump the paragraph itself in anyway besides using \n! 
+Also, I don't mean to use \n in between subchapter or at the end of the subchapter's text - avoid them -, I mean within the sub-chapters if needed.
 
 -------------------------------------------
 
@@ -46,11 +46,12 @@ The "Golden Rule" of Syncing:
 
 
 Step    Action  Why?
-1. Save     git push origin dev     Uploads your current dev work to the server (GitHub).
-2. Switch   git checkout main       Moves your local environment from the "workspace" to the "production" branch.
-3. Update   git pull origin main    Ensures your local main is up to date with any changes others made.
-4. Merge    git merge dev           This is the key: It pulls all the new code from dev into main.
-5. Finish   git push origin main
+1. Save     git checkout dev
+2. Push Dev git push
+3. Switch   git checkout main       Moves your local environment from the "workspace" to the "production" branch.
+4. Update   git pull origin main    Ensures your local main is up to date with any changes others made.
+5. Merge    git merge dev           This is the key: It pulls all the new code from dev into main.
+6. Finish   git push origin main
 
 --------------------------------
 
@@ -80,3 +81,9 @@ If there's an error when launching Android Emulator, like the one underneath:
 adb: failed to install /var/folders/6f/49h_wccj1sv61y_71z4wr6b00000gn/T/eas-cli-nodejs/eas-build-run-cache/1ff32ea2-de81-4812-a087-972185779115_a990c3ad-8817-478f-bd14-383f5f2b8a5c.apk: Failure
 Simply executable from the Android Emulator, procceed downloading apk file from Expo Dashboard. Finally, drag the apk file
 and release it over the Android Emulator. 
+
+
+*** EAS BUILD Preview mode:
+That's build the executable for native test.
+
+eas build --profile preview --platform android --local

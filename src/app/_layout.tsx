@@ -2,14 +2,11 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 
 
 export default function RootLayout() {
-
   SplashScreen.preventAutoHideAsync();
- const [loaded, error] = useFonts({
+  const [loaded, error] = useFonts({
     "OldEnglish-Bold": require('../../assets/font-family/RibeyeMarrow-Regular.ttf'),
     "CormorantUnicase": require('../../assets/font-family/Cormorant_Unicase/CormorantUnicase-Bold.ttf'),
   });
@@ -23,7 +20,6 @@ export default function RootLayout() {
   if (!loaded && !error) {
     return null;
   }
-
 
   return ( 
     <Stack

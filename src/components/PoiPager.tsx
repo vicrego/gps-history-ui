@@ -1,17 +1,16 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Alert, Button, Dimensions, FlatList, Image, Linking, ScrollView, Text, View } from 'react-native'
-import WebView from 'react-native-webview';
+import React, { useEffect, useRef, useState } from 'react'
+import { Button, Dimensions, FlatList, Image, ScrollView, Text, View } from 'react-native'
 import YoutubePlayer from "react-native-youtube-iframe";
 import * as WebBrowser from 'expo-web-browser';
 
 const PoiPager = ({chapter, setVisiblePages}: any) => {
-    const listRef = useRef<FlatList>(null);
     const [page, setPage] = useState(0);
+    const [isDisabledBack, setIsDisabledBack] = useState(false);
+    const [isDisabledNext, setIsDisabledNext] = useState(false);
+    const listRef = useRef<FlatList>(null);
     const PARENT_PADDING = 25;
     const { width: SCREEN_WIDTH } = Dimensions.get("window");
     const ITEM_WIDTH = SCREEN_WIDTH; // //ITEM_WIDTH is the width of each content
-    const [isDisabledBack, setIsDisabledBack] = useState(false);
-    const [isDisabledNext, setIsDisabledNext] = useState(false);
     
     useEffect(() => {
         if(page <= 0){
@@ -37,7 +36,6 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                             animated: true,
                         });
                     };
-                    console.log("item.id: ", item.id)
                     return (
                         <View key={item.id} style={{justifyContent: "space-between", flex: 1}}>
                             <Text 
@@ -89,14 +87,13 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                                                             fontSize: 23, 
                                                             color: "white", 
                                                             textAlign: "center",
-                                                            
                                                         }}
                                                     >
                                                         {content.item.name}
                                                     </Text>
                                                 }
                                                 {content.item.description.split('\n').map((line: any, index: any) => (
-                                                    <Text style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 22/*, width: "100%"*/ }}>
+                                                    <Text key={index} style={{ fontSize: 19, color: "white", textAlign: "justify", lineHeight: 24/*, width: "100%"*/ }}>
                                                         {line}
                                                     </Text>
                                                 ))}
@@ -117,11 +114,8 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                                                         <YoutubePlayer
                                                             width={SCREEN_WIDTH - PARENT_PADDING}
                                                             height={350}
-                                                            //play={playing}
                                                             videoId={content.item.videoId}
-                                                            //onChangeState={onStateChange}
                                                         />
-                                                        {/*<Button title={playing ? "pause" : "play"} onPress={togglePlaying} />*/}
                                                     </View>
                                                 }
                                                 {(content.item.externalLink !== "") && content.item.externalLink !== undefined && 
@@ -176,7 +170,6 @@ const PoiPager = ({chapter, setVisiblePages}: any) => {
                                         display: "flex", 
                                         justifyContent: "flex-end", 
                                         backgroundColor: "blue",
-                                        //height: "100%"
                                     }}>
                                     <View 
                                         style={{

@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { Button, Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import PoiPager from './PoiPager';
-import { Card, Image } from '@rneui/base';
-import { opacity } from 'react-native-reanimated/lib/typescript/Colors';
-import { chapterImages } from '../api/poiContent';
+import { Image } from '@rneui/base';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
@@ -24,11 +22,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
             animationType="slide"
             onRequestClose={() => setModalVisible(false)}
         >
-            <View style={{
-                flex: 1,
-                justifyContent: "flex-end",
-                backgroundColor: "rgba(0,0,0,0.4)"
-            }}>
+            <View style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "rgba(0,0,0,0.4)" }}>
                 <View style={{
                     backgroundColor: "rgba(9, 0, 79, 1)",
                     zIndex: 2, 
@@ -74,23 +68,6 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                                                     width: 200
                                                 }}
                                             >
-                                                {/*
-                                                <Text 
-                                                    style={{
-                                                        position: 'absolute',
-                                                        color: "black", 
-                                                        top: "30%",
-                                                        //left: "50%",
-                                                        textAlignVertical: "center", 
-                                                        textAlign: "center",
-                                                        fontFamily: "OldEnglish-Bold",
-                                                        fontSize: 20,
-                                                        zIndex: 2
-                                                    }}
-                                                >
-                                                    {chapter.title}
-                                                </Text>
-                                                */}
                                                 <Image
                                                     style={{ 
                                                         width:150, 
@@ -117,9 +94,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                                                         }}
                                                     >
                                                         {chapter.title}
-                                                    </Text>
-
-                                                    
+                                                    </Text>                                                    
                                                 </View>
                                             </View>
                                         </Pressable>  
@@ -131,19 +106,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                         <View style={{
                             justifyContent: "center", 
                         }}>
-                            {/*
-                            <Text 
-                                style={{ 
-                                    fontSize: 20, 
-                                    fontWeight: "bold", 
-                                    alignSelf: "center", 
-                                    color: "white",
-                                    fontFamily: "serif"
-                                }}>
-                                {poiFeatures?.properties?.title}
-                            </Text>
-                            */}
-                            <View >
+                            <View>
                                 <PoiPager chapter={filteredChapters} setVisiblePages={setVisiblePages} />
                             </View>
                         </View>
@@ -151,7 +114,7 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                 </View>
             </View>
         </Modal>
-  )
+    )
 }
 
 const styles = StyleSheet.create({
