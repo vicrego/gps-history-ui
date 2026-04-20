@@ -4,6 +4,7 @@ import PoiPager from './PoiPager';
 import { Image } from '@rneui/base';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { chapterImages } from '../api/poiContent';
 
 const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
     const [filteredChapters, setFilteredChapters] = useState();
@@ -39,77 +40,42 @@ const PoiModal = ({modalVisible, setModalVisible, poiFeatures}: any) => {
                         </View>
                         <Text style={{color: "white", fontSize: 28, fontFamily: "CormorantUnicase"}}>{poiFeatures?.properties.title}</Text>
                         <View style={{ width: 50, alignItems: "flex-end"}}>
-                            <AntDesign onPress={() => setModalVisible(false)} name="close-circle" size={38} color="green" />
+                            <AntDesign onPress={() => setModalVisible(false)} name="close-circle" size={38} color="green" />     
                         </View>
                     </View>
                     {!visiblePages ? (
                         <ScrollView 
-                            contentContainerStyle={{
-                                paddingBottom: 70, 
-                                gap: 30, 
-                                backgroundColor: "rgba(0,0,0,0.4)"
-                            }}
+                            contentContainerStyle={styles.scrollViewContainer}
                         >
                             {poiFeatures?.properties.chapters.map((chapter: any) => {
                                 return (
-                                    <View 
-                                        key={chapter.id} 
-                                        style={{ top: 20, width: 350, alignSelf: "center", backgroundColor: "rgba(10, 0, 88, 1)"}}
+                                    <Pressable 
+                                        key={chapter.id}
+                                        style={styles.chapterContainer}
+                                        onPress={()=> handleClick(chapter.title)}  
                                     >
-                                        <Pressable 
-                                            onPress={()=> handleClick(chapter.title)}  
-                                        >
 
-                                            <View 
-                                                style={{
-                                                    position:"relative",
-                                                    alignItems:"center", 
-                                                    flexDirection: "row",
-                                                    width: 200
-                                                }}
-                                            >
-                                                <Image
-                                                    style={{ 
-                                                        width:150, 
-                                                        height:150,
-                                                    }}
-                                                    resizeMode="contain"
-                                                    source={chapter.image}    
-                                                />
-                                                <View 
-                                                    style={{
-                                                        marginBottom: 0,
-                                                        paddingVertical: 5,
-                                                        marginRight: 2,
-                                                        marginLeft: 2,
-                                                    }}
+                                        <View 
+                                            style={styles.chapterContent}
+                                        >
+                                            <Image
+                                                style={styles.chapterImage}
+                                                resizeMode="contain"
+                                                source={chapter.image}    
+                                            />
+                                                <Text 
+                                                    style={styles.chapterTitle}
                                                 >
-                                                    <Text 
-                                                        style={{
-                                                            color: "white", 
-                                                            textAlignVertical: "center", 
-                                                            textAlign: "center",
-                                                            fontFamily: "CormorantUnicase",
-                                                            fontSize: 20
-                                                        }}
-                                                    >
-                                                        {chapter.title}
-                                                    </Text>                                                    
-                                                </View>
-                                            </View>
-                                        </Pressable>  
-                                    </View>
+                                                    {chapter.title}
+                                                </Text>                                                    
+                                        </View>
+                                    </Pressable>  
+                                
                                 )}
                             )}
                         </ScrollView>
                         ) : (
-                        <View style={{
-                            justifyContent: "center", 
-                        }}>
-                            <View>
-                                <PoiPager chapter={filteredChapters} setVisiblePages={setVisiblePages} />
-                            </View>
-                        </View>
+                            <PoiPager chapter={filteredChapters} setVisiblePages={setVisiblePages} />
                     )}
                 </View>
             </View>
@@ -130,10 +96,43 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10
     },
-    page: {
-        justifyContent: 'center',
-        alignItems: 'center',
+    scrollViewContainer: {
+        paddingBottom: 70, 
+        gap: 30, 
+        backgroundColor: "rgba(0,0,0,0.4)"
     },
+    chapterContainer:{
+        top: 20, 
+        width: 350, 
+        alignSelf: "center", 
+        //backgroundColor: "rgba(10, 0, 88, 1)",
+        marginTop: 10,
+        borderRadius: 15,
+        backgroundColor: "#242446",
+        overflow: "hidden",
+        elevation: 5, // Android shadow
+        shadowOpacity: 0.3, // iOS shadow
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+    },
+    chapterContent: {
+        position:"relative",
+        alignItems:"center", 
+        flexDirection: "row",
+        width: 200
+    },
+    chapterImage: {
+        width:150, 
+        height:150,
+    },
+    chapterTitle: {
+        color: "white", 
+        textAlignVertical: "center", 
+        textAlign: "center",
+        fontFamily: "CormorantUnicase",
+        fontSize: 20,
+    },
+    
 });
 
 export default PoiModal

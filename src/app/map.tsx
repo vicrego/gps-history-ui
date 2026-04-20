@@ -5,8 +5,9 @@ import { StyleSheet, View } from 'react-native';
 import SearchComponent from '../components/SearchComponent';
 import { mapFeatures, poiImages } from '../api/poiContent';
 import PoiModal from '../components/PoiModal';
+import MenuBar from '../components/MenuBar';
 
-let publicToken = "pk.eyJ1IjoidmljcmVnbyIsImEiOiJjbWc2OWQ2cjkwYmR3MmxzZHZ4aWpzcDM2In0.7_PNb8rw61ISZt1Q7ysIuw";
+let publicToken = process.env.EXPO_PUBLIC_MAPBOX_TOKEN || ""; // Access token for Mapbox, stored in .env file
 Mapbox.setAccessToken(publicToken);
 
 
@@ -18,15 +19,17 @@ const Map = ({citySelectedArray}: any) => {
   
   return (
     <View style={styles.container}>
-      <SearchComponent
+      <MenuBar 
         setDestinationCoords={setDestinationCoords}
         publicToken={publicToken}
       />
+      
       <Mapbox.MapView
         style={styles.map}
         styleURL="mapbox://styles/vicrego/cmkkzon37000901s8ev408spz"
         rotateEnabled={false}
         pitchEnabled={true}
+        scaleBarEnabled={false}
       >
         <Mapbox.Camera
           zoomLevel={13}
